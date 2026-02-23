@@ -1,0 +1,33 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #111010;
+  --surface:  #1a1918;
+  --surface2: #222120;
+  --border:   #333130;
+  --accent:   #e8c97a;   /* warm gold */
+  --accent2:  #c45c3a;   /* burnt orange */
+  --accent3:  #7ac8c8;   /* teal */
+  --text:     #ede8e0;
+  --text-muted: #706a60;
+  --success:  #7ac878;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inconsolata', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse at 10% 80%, rgba(196,92,58,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 10%, rgba(232,201,122,0.06) 0%, transparent 55%);
+}
+
+h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; }
+
+button { cursor: pointer; font-family: inherit; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
