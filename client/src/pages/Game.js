@@ -201,10 +201,7 @@ export default function Game({ config, onBack, onLeaderboard }) {
                   } : {}}
                 >
                   {!isEmpty && (
-                    <>
-                      <span className="tile-num">{tile}</span>
-                      <div className="tile-gloss" />
-                    </>
+                    <div className="tile-gloss" />
                   )}
                 </div>
               );

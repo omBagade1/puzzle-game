@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import ImagePicker, { THEMES } from '../components/ImagePicker';
+import ImagePicker, { PUZZLE_IMAGE } from '../components/ImagePicker';
 import './Home.css';
 
 export default function Home({ onStart }) {
   const [playerName, setPlayerName] = useState('');
-  const [imageSource, setImageSource] = useState(THEMES[0]);
   const [error, setError] = useState('');
 
   const handleStart = () => {
-    if (!playerName.trim()) { setError('Enter your name first!'); return; }
-    if (!imageSource)       { setError('Pick a theme or upload an image!'); return; }
-    onStart({ playerName: playerName.trim(), imageSource });
+    if (!playerName.trim()) {
+      alert('Please enter your name first!');
+      return;
+    }
+    onStart({ playerName: playerName.trim(), imageSource: PUZZLE_IMAGE });
   };
 
   return (
@@ -18,11 +19,10 @@ export default function Home({ onStart }) {
       <div className="home-hero">
         <p className="hero-eyebrow">// SLIDING PUZZLE GAME v2</p>
         <h1 className="hero-title">
-          PUZZLE<br /><span className="hero-outline">YOUR IMAGE</span>
+          PUZZLE<br /><span className="hero-outline">THE IMAGE</span>
         </h1>
         <p className="hero-desc">
-          Upload any photo and slide the pieces back together.
-          Choose a built-in theme or make it personal.
+          Slide the pieces back together. A classic 3x3 sliding puzzle game.
         </p>
       </div>
 
@@ -42,10 +42,7 @@ export default function Home({ onStart }) {
             {error && <span className="field-error">{error}</span>}
           </div>
 
-          <div className="field">
-            <label className="field-label">// PUZZLE SOURCE</label>
-            <ImagePicker value={imageSource} onChange={(src) => { setImageSource(src); setError(''); }} />
-          </div>
+          <ImagePicker />
 
           <button className="start-btn" onClick={handleStart}>
             START PUZZLE →
